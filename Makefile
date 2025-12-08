@@ -16,13 +16,15 @@ SRCS_ROOT		=	main.c
 SRCS_SUB		=	check/check_data_is_valid.c \
 					check/checker.c \
 					check/create_data.c \
-					double_list_commands/double_lst_cmd.c \
-					error_handling/error.c \
 					sorting_operations/push_op.c \
+					sorting_operations/swap_op.c \
 					sorting_operations/rev_rotate_op.c \
 					sorting_operations/rotate_op.c \
-					sorting_operations/swap_op.c \
+					sort/sort.c \
+					double_lst_cmd.c \
+					error.c \
 					push_swap.c \
+					indexing.c \
 					asupprimer.c
 
 SRCS			=	$(SRCS_ROOT) $(addprefix $(SRC_DIR)/, $(SRCS_SUB))
