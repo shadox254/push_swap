@@ -1,0 +1,7 @@
+.vscode/
+*~\#&\#
+*.a
+/obj
+*.o
+
+.DS_STORE
