@@ -20,12 +20,14 @@ typedef struct s_data
 	t_stack *stack_b;
 }	t_data;
 
-void push_swap(t_data *data);
 void indexing(t_data *data);
+void push_swap(t_data *data);
+void sort_stack(t_data *data);
+void	to_top(t_data *data, int index);
 
 // SORT OPERATIONS
-void	pa(t_stack **src, t_stack **dest);
-void	pb(t_stack **src, t_stack **dest);
+void	pa(t_data *data);
+void	pb(t_data *data);
 void	sa(t_data *data);
 void	sb(t_data *data);
 void	ss(t_data *data);
@@ -60,7 +62,6 @@ void	ft_double_lstadd_front(t_stack **lst, t_stack *new);
 
 // SORT
 void sort_two(t_data *data);
-void sort_for(t_data *data);
 void sort_five(t_data *data);
 void sort_three(t_data *data);
 

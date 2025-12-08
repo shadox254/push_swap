@@ -20,11 +20,12 @@ SRCS_SUB		=	check/check_data_is_valid.c \
 					sorting_operations/swap_op.c \
 					sorting_operations/rev_rotate_op.c \
 					sorting_operations/rotate_op.c \
-					sort/sort.c \
+					sort.c \
 					double_lst_cmd.c \
 					error.c \
 					push_swap.c \
 					indexing.c \
+					algo.c \
 					asupprimer.c
 
 SRCS			=	$(SRCS_ROOT) $(addprefix $(SRC_DIR)/, $(SRCS_SUB))
