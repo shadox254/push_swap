@@ -13,20 +13,21 @@ INCLUDES		=	-I $(INC_DIR) -I $(LIBFT_PATH)
 
 SRCS_ROOT		=	main.c
 
-SRCS_SUB		=	check/check_data_is_valid.c \
-					check/checker.c \
+SRCS_SUB		=	check/checker.c \
 					check/create_data.c \
 					sorting_operations/push_op.c \
 					sorting_operations/swap_op.c \
 					sorting_operations/rev_rotate_op.c \
 					sorting_operations/rotate_op.c \
-					sort.c \
+					sort_number/sort_5.c \
+					sort_number/sort.c \
 					double_lst_cmd.c \
 					error.c \
 					push_swap.c \
 					indexing.c \
 					algo.c \
-					asupprimer.c
+					utils.c \
+					debug.c
 
 SRCS			=	$(SRCS_ROOT) $(addprefix $(SRC_DIR)/, $(SRCS_SUB))
 OBJS			=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

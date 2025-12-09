@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:04:59 by rruiz             #+#    #+#             */
-/*   Updated: 2025/10/27 16:48:29 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/09 09:21:29 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t	in_set(char const c, char const *set)
 	{
 		if (c == set[i])
 			return (1);
-	i++;
+		i++;
 	}
 	return (0);
 }

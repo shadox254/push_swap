@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   double_lst_cmd.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/09 09:32:01 by rruiz             #+#    #+#             */
+/*   Updated: 2025/12/09 16:06:22 by rruiz            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-void ft_clear_double_lst(t_stack **lst)
+void	ft_clear_double_lst(t_stack **lst)
 {
-	t_stack *tmp;
-	t_stack *current;
+	t_stack	*tmp;
+	t_stack	*current;
 
 	if (!lst || !*lst)
 		return ;
@@ -17,9 +29,9 @@ void ft_clear_double_lst(t_stack **lst)
 	*lst = NULL;
 }
 
-t_stack *ft_double_lst_new(int value)
+t_stack	*ft_double_lst_new(int value)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
@@ -28,12 +40,14 @@ t_stack *ft_double_lst_new(int value)
 	node->index = 0;
 	node->next = NULL;
 	node->previous = NULL;
+	node->target = NULL;
+	node->push_cost = 0;
 	return (node);
 }
 
-void ft_double_lst_add_back(t_stack **lst, t_stack *new)
+void	ft_double_lst_add_back(t_stack **lst, t_stack *new)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!lst || !new)
 		return ;
@@ -60,9 +74,9 @@ void	ft_double_lstadd_front(t_stack **lst, t_stack *new)
 	*lst = new;
 }
 
-int ft_double_lstsize(t_stack *stack)
+int	ft_double_lstsize(t_stack *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack != NULL)

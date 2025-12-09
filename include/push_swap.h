@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/09 09:22:22 by rruiz             #+#    #+#             */
+/*   Updated: 2025/12/09 17:44:54 by rruiz            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
@@ -8,22 +20,23 @@
 
 typedef struct s_stack
 {
-	int				value;
+	int				push_cost;
 	int				index;
+	long			value;
 	struct s_stack	*next;
 	struct s_stack	*previous;
+	struct s_stack	*target;
 }	t_stack;
 
 typedef struct s_data
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 }	t_data;
 
-void indexing(t_data *data);
-void push_swap(t_data *data);
-void sort_stack(t_data *data);
-void	to_top(t_data *data, int index);
+void	indexing(t_data *data);
+void	push_swap(t_data *data);
+void	sort_stack(t_data *data);
 
 // SORT OPERATIONS
 void	pa(t_data *data);
@@ -38,31 +51,40 @@ void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
 
-// A SUpPRIMER
-void print_stack_a(t_stack *a);
-void print_stack_b(t_stack *b);
-void free_stack(t_stack **stack);
+// DEBUG
+void	print_stack_a(t_stack *a);
+void	print_stack_b(t_stack *b);
+void	free_stack(t_stack **stack);
 
 // CHECK
-int check_only_num(char *str);
-int check_order(t_stack **stack);
-int check_dup_num(t_stack **stack);
-int create_data(t_stack **stack, int ac, char **av);
+int		check_only_num(char *str);
+int		check_order(t_stack *stack);
+int		check_num(t_stack *stack);
+int		create_data(t_stack **stack, int ac, char **av);
 
 // ERROR HANDLING
-int error(t_data data);
-void clear_data(t_data *data);
+int		error(t_data data);
+void	clear_data(t_data *data);
 
 // DOUBLE LIST CMD
-t_stack *ft_double_lst_new(int value);
-int ft_double_lstsize(t_stack *stack);
-void ft_clear_double_lst(t_stack **lst);
-void ft_double_lst_add_back(t_stack **lst, t_stack *new);
+t_stack	*ft_double_lst_new(int value);
+int		ft_double_lstsize(t_stack *stack);
+void	ft_clear_double_lst(t_stack **lst);
+void	ft_double_lst_add_back(t_stack **lst, t_stack *new);
 void	ft_double_lstadd_front(t_stack **lst, t_stack *new);
 
 // SORT
-void sort_two(t_data *data);
-void sort_five(t_data *data);
-void sort_three(t_data *data);
+void	sort_two(t_data *data);
+void	sort_three(t_data *data);
+void	sort_four(t_data *data);
+void	sort_five(t_data *data);
+
+// UTILS
+long	get_lowest(t_data *data);
+long	get_highest(t_data *data);
+int		get_pos(t_stack *stack, int value);
+
+// TARGET
+void	get_target_b(t_data *data);
 
 #endif

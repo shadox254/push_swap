@@ -6,13 +6,13 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 10:28:45 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/08 15:31:47 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/09 09:25:13 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void push(t_stack **src, t_stack **dest)
+static void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*node_to_push;
 

@@ -1,37 +1,4 @@
-#include "../include/push_swap.h"
-
-void sort_two(t_data *data)
-{
-	if (data->stack_a->value > data->stack_a->next->value)
-		sa(data);
-}
-
-void sort_three(t_data *data)
-{
-	if (data->stack_a->next->index == 2)
-		sa(data);
-	if (data->stack_a->index == 2)
-		ra(data);
-	if (data->stack_a->index > data->stack_a->next->index)
-		sa(data);
-}
-
-static int	get_pos(t_stack *stack, int value)
-{
-	int		i;
-	t_stack	*tmp;
-
-	i = 0;
-	tmp = stack;
-	while (tmp)
-	{
-		if (tmp->index == value)
-			return (i);
-		tmp = tmp->next;
-		i++;
-	}
-	return (0);
-}
+#include "../../include/push_swap.h"
 
 static int	get_target(t_stack *a, int val_to_push)
 {

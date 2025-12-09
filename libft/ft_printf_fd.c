@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 11:52:46 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/05 10:33:30 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/09 09:20:53 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ static int	is_percent(int fd, char c, va_list args)
 	if (c == 'u')
 		count = ft_putnbr_base(fd, va_arg(args, unsigned int), "0123456789");
 	if (c == 'x')
-		count = ft_putnbr_base(fd, va_arg(args, unsigned int), "0123456789abcdef");
+		count = ft_putnbr_base(fd, va_arg(args, unsigned int),
+				"0123456789abcdef");
 	if (c == 'X')
-		count = ft_putnbr_base(fd, va_arg(args, unsigned int), "0123456789ABCDEF");
+		count = ft_putnbr_base(fd, va_arg(args, unsigned int),
+				"0123456789ABCDEF");
 	if (c == '%')
 		count = ft_putchar(fd, '%');
 	return (count);
