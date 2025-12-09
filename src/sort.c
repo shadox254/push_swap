@@ -16,40 +16,77 @@ void sort_three(t_data *data)
 		sa(data);
 }
 
-void sort_five(t_data *data)
+static int	get_pos(t_stack *stack, int value)
 {
-	int	min_index;
+	int		i;
+	t_stack	*tmp;
 
-	while (ft_double_lstsize(data->stack_a) > 3)
+	i = 0;
+	tmp = stack;
+	while (tmp)
 	{
-		min_index = get_min_index(data->stack_a);
-		to_top(data, min_index);
-		pb(data);
+		if (tmp->index == value)
+			return (i);
+		tmp = tmp->next;
+		i++;
 	}
-	sort_3(data);
-	pa(data);
-	pa(data);
+	return (0);
 }
 
-void	to_top(t_data *data, int index)
+static int	get_target(t_stack *a, int val_to_push)
 {
-	int	size;
+	t_stack	*tmp;
+	int		target;
+	int		min;
 
-	size = ft_double_lstsize(data->stack_a);
-	if (index <= size / 2)
+	tmp = a;
+	target = 2147483647;
+	min = 2147483647;
+	while (tmp)
 	{
-		while (index > 0)
-		{
+		if (tmp->index < min)
+			min = tmp->index;
+		if (tmp->index > val_to_push && tmp->index < target)
+			target = tmp->index;
+		tmp = tmp->next;
+	}
+	if (target == 2147483647)
+		return (min);
+	return (target);
+}
+
+static void	bring_to_top(t_data *data, int target_val)
+{
+	int		pos;
+	int		size;
+	t_stack	*tmp;
+
+	size = 0;
+	tmp = data->stack_a;
+	while (tmp && ++size)
+		tmp = tmp->next;
+	pos = get_pos(data->stack_a, target_val);
+	if (pos <= size / 2)
+	{
+		while (data->stack_a->index != target_val)
 			ra(data);
-			index--;
-		}
 	}
 	else
 	{
-		while (index < size)
-		{
+		while (data->stack_a->index != target_val)
 			rra(data);
-			index++;
-		}
 	}
+}
+
+void	sort_five(t_data *data)
+{
+	pb(data);
+	pb(data);
+	sort_three(data);
+	while (data->stack_b)
+	{
+		bring_to_top(data, get_target(data->stack_a, data->stack_b->index));
+		pa(data);
+	}
+	bring_to_top(data, 0);
 }
