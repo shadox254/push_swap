@@ -19,7 +19,7 @@ SRCS_SUB		=	check/checker.c \
 					sorting_operations/swap_op.c \
 					sorting_operations/rev_rotate_op.c \
 					sorting_operations/rotate_op.c \
-					sort_number/sort_5.c \
+					sort_number/sort_five.c \
 					sort_number/sort.c \
 					double_lst_cmd.c \
 					error.c \

@@ -19,7 +19,6 @@ static int	cost_to_top(t_stack *stack, int size_stack)
 		while (stack->index - nb != 0)
 			nb++;
 	}
-	printf("size_stack: %d\nmedian: %d\nnb: %d\n", size_stack, median, nb);
 	return (nb);
 }
 
@@ -48,5 +47,27 @@ void get_cost_b(t_data *data)
 	{
 		current->push_cost = cost_to_top(current, size);
 		current = current->next;
+	}
+}
+
+void push_cost(t_data *data)
+{
+	if (data->stack_a->above_median == 1 && data->stack_b->above_median == 1)
+	{
+		while (data->stack_a->push_cost != 0 || data->stack_b->push_cost != 0)
+			rrr(data);
+		if (data->stack_a->push_cost != 0)
+			rra(data);
+		if (data->stack_b->push_cost != 0)
+			rrb(data);
+	}
+	else if (data->stack_a->above_median == 0 && data->stack_b->above_median == 0)
+	{
+		while (data->stack_a->push_cost != 0 || data->stack_b->push_cost != 0)
+			rr(data);
+		if (data->stack_a->push_cost != 0)
+			ra(data);
+		if (data->stack_b->push_cost != 0)
+			rb(data);
 	}
 }

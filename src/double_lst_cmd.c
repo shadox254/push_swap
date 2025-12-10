@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:32:01 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/09 16:06:22 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/10 16:10:17 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_stack	*ft_double_lst_new(int value)
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
+	node->above_median = 0;
 	node->value = value;
 	node->index = 0;
 	node->next = NULL;

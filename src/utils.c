@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:35:23 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/09 17:44:56 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/10 17:13:40 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,33 @@ long get_highest(t_data *data)
 		tmp = tmp->next;
 	}
 	return (res);
+}
+
+void	init_median(t_data *data)
+{
+	int		size_a;
+	int		size_b;
+	t_stack	*current;
+
+	size_a = ft_double_lstsize(data->stack_a);
+	current = data->stack_a;
+	while (current != NULL)
+	{
+		if (current->index < size_a/2)
+			current->above_median = 1;
+		else
+			current->above_median = 0;
+		current = current->next;
+	}
+	size_b = ft_double_lstsize(data->stack_b);
+	printf("ettetetetetetetetetettetete: %d", size_b);
+	current = data->stack_b;
+	while (current != NULL)
+	{
+		if (current->index < size_b/2)
+			current->above_median = 1;
+		else
+			current->above_median = 0;
+		current = current->next;
+	}
 }
