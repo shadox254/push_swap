@@ -1,25 +1,18 @@
 #include "../include/push_swap.h"
 
-static int	cost_to_top(t_stack *stack, int size_stack)
+int	cost_to_top(int index, int size)
 {
 	int	median;
-	int	nb;
+	int res;
 
-	median = size_stack/2;
-	nb = 0;
-	if (stack->index > median)
-	{
-		while (stack->index + nb < size_stack)
-			nb++;
-		if (stack->index + nb == size_stack)
-			nb++;
-	}
+	median = size / 2;
+	if (index <= median)
+		return (index);
 	else
 	{
-		while (stack->index - nb != 0)
-			nb++;
+		res = size - index;
+		return (res);
 	}
-	return (nb);
 }
 
 void get_cost_a(t_data *data)
@@ -31,7 +24,7 @@ void get_cost_a(t_data *data)
 	current = data->stack_a;
 	while (current != NULL)
 	{
-		current->push_cost = cost_to_top(current, size);
+		current->push_cost = cost_to_top(current->index, size);
 		current = current->next;
 	}
 }
@@ -45,29 +38,35 @@ void get_cost_b(t_data *data)
 	current = data->stack_b;
 	while (current != NULL)
 	{
-		current->push_cost = cost_to_top(current, size);
+		current->push_cost = cost_to_top(current->index, size);
 		current = current->next;
 	}
 }
 
-void push_cost(t_data *data)
+void push_cost(t_data *data, t_stack *cheappest)
 {
-	if (data->stack_a->above_median == 1 && data->stack_b->above_median == 1)
+	if (cheappest->above_median && cheappest->target->above_median)
 	{
-		while (data->stack_a->push_cost != 0 || data->stack_b->push_cost != 0)
-			rrr(data);
-		if (data->stack_a->push_cost != 0)
-			rra(data);
-		if (data->stack_b->push_cost != 0)
-			rrb(data);
-	}
-	else if (data->stack_a->above_median == 0 && data->stack_b->above_median == 0)
-	{
-		while (data->stack_a->push_cost != 0 || data->stack_b->push_cost != 0)
+		while (cheappest->index != 0 && cheappest->target->index != 0)
 			rr(data);
-		if (data->stack_a->push_cost != 0)
+	}
+	else if (!cheappest->above_median && !cheappest->target->above_median)
+	{
+		while (cheappest->index != 0 && cheappest->target->index != 0)
+			rrr(data);
+	}
+	while (cheappest->index != 0)
+	{
+		if (cheappest->above_median)
 			ra(data);
-		if (data->stack_b->push_cost != 0)
+		else
+			rra(data);
+	}
+	while (cheappest->target->index != 0)
+	{
+		if (cheappest->target->above_median)
 			rb(data);
+		else
+			rrb(data);
 	}
 }

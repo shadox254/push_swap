@@ -39,6 +39,7 @@ t_stack	*ft_double_lst_new(int value)
 	node->above_median = 0;
 	node->value = value;
 	node->index = 0;
+	node->cheappest = NULL;
 	node->next = NULL;
 	node->previous = NULL;
 	node->target = NULL;

@@ -24,6 +24,7 @@ typedef struct s_stack
 	int				push_cost;
 	int				index;
 	long			value;
+	struct s_stack	*cheappest;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 	struct s_stack	*target;
@@ -86,6 +87,7 @@ long	get_lowest(t_data *data);
 long	get_highest(t_data *data);
 void	init_median(t_data *data);
 int		get_pos(t_stack *stack, int value);
+void	get_cheappest(t_stack *stack);
 
 // TARGET
 void	get_target_b(t_data *data);
@@ -93,6 +95,6 @@ void	get_target_b(t_data *data);
 // COST
 void get_cost_a(t_data *data);
 void get_cost_b(t_data *data);
-void push_cost(t_data *data);
+void push_cost(t_data *data, t_stack *cheappest);
 
 #endif

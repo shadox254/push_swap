@@ -88,3 +88,8 @@ void	init_median(t_data *data)
 		current = current->next;
 	}
 }
+
+void	get_cheappest(t_stack *stack)
+{
+	(void) stack;
+}
