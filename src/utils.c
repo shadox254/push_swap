@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:35:23 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/10 17:13:40 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/10 18:19:22 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	init_median(t_data *data)
 		current = current->next;
 	}
 	size_b = ft_double_lstsize(data->stack_b);
-	printf("ettetetetetetetetetettetete: %d", size_b);
 	current = data->stack_b;
 	while (current != NULL)
 	{
