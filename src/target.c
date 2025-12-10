@@ -16,18 +16,18 @@ static t_stack	*get_max(t_stack *stack)
 	return (max_node);
 }
 
-static t_stack	*find_best_target(t_stack *stack_b, long val_a)
+static t_stack	*find_target(t_stack *stack_b, long val_a)
 {
 	t_stack	*target_node;
-	long	best_match_val;
+	long	best_target;
 
 	target_node = NULL;
-	best_match_val = LONG_MIN;
+	best_target = LONG_MIN;
 	while (stack_b)
 	{
-		if (stack_b->value < val_a && stack_b->value > best_match_val)
+		if (stack_b->value < val_a && stack_b->value > best_target)
 		{
-			best_match_val = stack_b->value;
+			best_target = stack_b->value;
 			target_node = stack_b;
 		}
 		stack_b = stack_b->next;
@@ -44,7 +44,7 @@ void	get_target_b(t_data *data)
 	curr_a = data->stack_a;
 	while (curr_a)
 	{
-		curr_a->target = find_best_target(data->stack_b, curr_a->value);
+		curr_a->target = find_target(data->stack_b, curr_a->value);
 		curr_a = curr_a->next;
 	}
 }

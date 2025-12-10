@@ -28,6 +28,7 @@ SRCS_SUB		=	check/checker.c \
 					algo.c \
 					utils.c \
 					target.c \
+					cost.c \
 					debug.c
 
 SRCS			=	$(SRCS_ROOT) $(addprefix $(SRC_DIR)/, $(SRCS_SUB))

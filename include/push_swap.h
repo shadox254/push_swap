@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:22:22 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/09 17:44:54 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/10 11:46:13 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_data
 	t_stack	*stack_b;
 }	t_data;
 
-void	indexing(t_data *data);
+void	indexing(t_stack *stack);
+void	index_zero(t_stack *stack);
 void	push_swap(t_data *data);
 void	sort_stack(t_data *data);
 
@@ -78,6 +79,7 @@ void	sort_two(t_data *data);
 void	sort_three(t_data *data);
 void	sort_four(t_data *data);
 void	sort_five(t_data *data);
+void	bring_to_top(t_data *data, int target);
 
 // UTILS
 long	get_lowest(t_data *data);
@@ -86,5 +88,9 @@ int		get_pos(t_stack *stack, int value);
 
 // TARGET
 void	get_target_b(t_data *data);
+
+// COST
+void get_cost_a(t_data *data);
+void get_cost_b(t_data *data);
 
 #endif

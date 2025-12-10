@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:36:43 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/09 15:51:51 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/10 11:20:57 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	main(int ac, char **av)
 		clear_data(&data);
 		return (0);
 	}
-	indexing(&data);
+	indexing((data).stack_a);
 	push_swap(&data);
-	print_stack_a(data.stack_a);
-	print_stack_b(data.stack_b);
+	// print_stack_a(data.stack_a);
+	// print_stack_b(data.stack_b);
 	clear_data(&data);
 	return (0);
 }
