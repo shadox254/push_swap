@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:27:57 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/10 16:35:46 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/11 11:36:45 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	print_stack_a(t_stack *a)
 			ft_printf_fd(1, "Val: %d | Idx: %d | Adr: %p | Prev: %p | Nxt: %p",
 				tmp->value, tmp->index, (void*)tmp, (void*)tmp->previous,
 				(void*)tmp->next);
-			ft_printf_fd(1, "| Trg: %p | Cst: %d | Mdn: %d", tmp->target,
-				tmp->push_cost, tmp->above_median);
+			ft_printf_fd(1, "| Trg: %p | Cst: %d | Mdn: %d | Chp: %d | Pos: %d", 
+				tmp->target, tmp->push_cost, tmp->above_median, tmp->cheappest,
+				tmp->pos);
 			ft_printf_fd(1, "\n");
 			tmp = tmp->next;
 		}
@@ -51,8 +52,9 @@ void	print_stack_b(t_stack *b)
 			ft_printf_fd(1, "Val: %d | Idx: %d | Adr: %p | Prev: %p | Nxt: %p ",
 				tmp->value, tmp->index, (void*)tmp, (void*)tmp->previous,
 				(void*)tmp->next);
-			ft_printf_fd(1, "| Trg: %p | Cst: %d | Mdn: %d", tmp->target,
-				tmp->push_cost, tmp->above_median);
+			ft_printf_fd(1, "| Trg: %p | Cst: %d | Mdn: %d | Chp: %d | Pos: %d", 
+				tmp->target, tmp->push_cost, tmp->above_median, tmp->cheappest,
+				tmp->pos);
 			ft_printf_fd(1, "\n");
 			tmp = tmp->next;
 		}

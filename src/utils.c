@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:35:23 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/10 18:19:22 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/11 16:22:19 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,23 @@ void	init_median(t_data *data)
 	}
 }
 
-void	get_cheappest(t_stack *stack)
+void	init_cheappest(t_stack *stack)
 {
-	(void) stack;
+	t_stack		*current;
+	t_stack		*cheappest_node;
+	long		cheap;
+
+	current = stack;
+	cheap = LONG_MAX;
+	while (current != NULL)
+	{
+		if (current->push_cost < cheap)
+		{
+			cheap = current->push_cost;
+			cheappest_node = current;
+		}
+		current = current->next;
+	}
+	if (cheappest_node)
+		cheappest_node->cheappest = 1;
 }

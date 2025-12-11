@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:27:26 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/10 18:00:37 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/11 16:31:17 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 
 void	sort_stack(t_data *data)
 {
-	int	size;
+	t_stack	*current_cheapest;
 
 	pb(data);
 	pb(data);
 	indexing(data);
 	init_median(data);
-	size = 0;
-	size = ft_double_lstsize(data->stack_a);
-	get_target_b(data);
+	set_pos(data);
+	get_target_a(data);
 	get_cost_a(data);
 	get_cost_b(data);
-	get_cheappest(data->stack_a);
+	init_cheappest(data->stack_a);
+	current_cheapest = get_cheappest(data->stack_a);
 	print_stack_a(data->stack_a);
 	print_stack_b(data->stack_b);
-	ft_printf_fd(1, "\n===================================================================\n");
-	push_cost(data, data->stack_a->cheappest);
+	push_cost(data, current_cheapest);
 	print_stack_a(data->stack_a);
 	print_stack_b(data->stack_b);
-	ft_printf_fd(1, "\n===================================================================\n");
-	get_cost_a(data);
-	get_cost_b(data);
-	(void) size;
+	// total_cost(data->stack_a, data->stack_b);
+	// get_cheappest(data->stack_a);
+	// push_cost(data, data->stack_a->cheappest);
 }

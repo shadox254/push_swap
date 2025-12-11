@@ -16,28 +16,30 @@ static t_stack	*get_max(t_stack *stack)
 	return (max_node);
 }
 
-static t_stack	*find_target(t_stack *stack_b, long val_a)
+static t_stack	*find_target(t_stack *stack, long val_a)
 {
 	t_stack	*target_node;
+	t_stack	*current;
 	long	best_target;
 
 	target_node = NULL;
+	current = stack;
 	best_target = LONG_MIN;
-	while (stack_b)
+	while (current)
 	{
-		if (stack_b->value < val_a && stack_b->value > best_target)
+		if (current->value < val_a && current->value > best_target)
 		{
-			best_target = stack_b->value;
-			target_node = stack_b;
+			best_target = current->value;
+			target_node = current;
 		}
-		stack_b = stack_b->next;
+		current = current->next;
 	}
 	if (!target_node)
-		return (get_max(stack_b));
+		return (get_max(stack));
 	return (target_node);
 }
 
-void	get_target_b(t_data *data)
+void	get_target_a(t_data *data)
 {
 	t_stack	*curr_a;
 
@@ -45,6 +47,18 @@ void	get_target_b(t_data *data)
 	while (curr_a)
 	{
 		curr_a->target = find_target(data->stack_b, curr_a->value);
+		curr_a = curr_a->next;
+	}
+}
+
+void	get_target_b(t_data *data)
+{
+	t_stack	*curr_a;
+
+	curr_a = data->stack_b;
+	while (curr_a)
+	{
+		curr_a->target = find_target(data->stack_a, curr_a->value);
 		curr_a = curr_a->next;
 	}
 }
