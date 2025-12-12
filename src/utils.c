@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:35:23 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/11 16:22:19 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/12 11:55:03 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	get_pos(t_stack *stack, int value)
 	return (0);
 }
 
-long get_lowest(t_data *data)
+long get_lowest(t_stack *stack)
 {
 	long	res;
 	t_stack	*tmp;
 
-	tmp = data->stack_a;
+	tmp = stack;
 	res = tmp->value;
 	while (tmp != NULL)
 	{
@@ -45,12 +45,12 @@ long get_lowest(t_data *data)
 	return (res);
 }
 
-long get_highest(t_data *data)
+long get_highest(t_stack *stack)
 {
 	long	res;
 	t_stack	*tmp;
 
-	tmp = data->stack_a;
+	tmp = stack;
 	res = tmp->value;
 	while (tmp != NULL)
 	{

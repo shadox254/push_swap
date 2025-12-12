@@ -25,13 +25,30 @@ void	set_pos(t_data *data)
 
 t_stack	*get_cheappest(t_stack *stack)
 {
-    if (!stack)
-        return (NULL);
     while (stack)
     {
-        if (stack->cheappest == 1) // On a trouvé l'élu
+        if (stack->cheappest == 1)
             return (stack);
         stack = stack->next;
     }
-    return (NULL); // Sécurité si aucun n'est marqué (ne devrait pas arriver)
+    return (NULL);
+}
+
+void	set_current_position(t_stack *stack)
+{
+    int i;
+    int median;
+
+    i = 0;
+    median = ft_double_lstsize(stack) / 2;
+    while (stack)
+    {
+        stack->pos = i;
+        if (i <= median)
+            stack->above_median = 1;
+        else
+            stack->above_median = 0;
+        stack = stack->next;
+        i++;
+    }
 }

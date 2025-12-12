@@ -1,100 +1,128 @@
 #include "../include/push_swap.h"
 
-static int	cost_to_top(int pos, int size)
+void push_cost_a(t_data *data, t_stack *c_node)
 {
-	int	median;
-	int res;
-
-	median = size / 2;
-	if (pos <= median)
-		return (pos);
-	else
+	if (c_node->above_median && c_node->target->above_median)
 	{
-		res = size - pos;
-		return (res);
-	}
-}
-
-void get_cost_a(t_data *data)
-{
-	t_stack	*current;
-	int		size;
-
-	size = ft_double_lstsize(data->stack_a);
-	current = data->stack_a;
-	while (current != NULL)
-	{
-		current->push_cost = cost_to_top(current->pos, size);
-		current = current->next;
-	}
-}
-
-void get_cost_b(t_data *data)
-{
-	t_stack	*current;
-	int		size;
-
-	size = ft_double_lstsize(data->stack_b);
-	current = data->stack_b;
-	while (current != NULL)
-	{
-		current->push_cost = cost_to_top(current->index, size);
-		current = current->next;
-	}
-}
-
-void	push_cost(t_data *data, t_stack *cheappest)
-{
-	if (cheappest->above_median && cheappest->target->above_median)
-	{
-		while (data->stack_a != cheappest && data->stack_b != cheappest->target)
+		while (data->stack_a != c_node && data->stack_b != c_node->target)
 			rr(data);
 	}
-	else if (!cheappest->above_median && !cheappest->target->above_median)
+	else if (!c_node->above_median && !c_node->target->above_median)
 	{
-		while (data->stack_a != cheappest && data->stack_b != cheappest->target)
+		while (data->stack_a != c_node && data->stack_b != c_node->target)
 			rrr(data);
 	}
-	while (data->stack_a != cheappest)
+	while (data->stack_a != c_node)
 	{
-		if (cheappest->above_median)
+		if (c_node->above_median)
 			ra(data);
 		else
 			rra(data);
 	}
-	while (data->stack_b != cheappest->target)
+	while (data->stack_b != c_node->target)
 	{
-		if (cheappest->target->above_median)
+		if (c_node->target->above_median)
 			rb(data);
 		else
 			rrb(data);
 	}
 }
 
-void total_cost(t_stack *stack_a, t_stack *stack_b)
+void push_cost_b(t_data *data, t_stack *c_node)
 {
-	int len_a = ft_double_lstsize(stack_a);
-	int len_b = ft_double_lstsize(stack_b);
-
-	while (stack_a)
+	if (c_node->above_median && c_node->target->above_median)
 	{
-		stack_a->push_cost = stack_a->index;
-		if (!(stack_a->above_median))
-			stack_a->push_cost = len_a - stack_a->index;
-		if (stack_a->target->above_median)
-			stack_a->target->push_cost = stack_a->target->index;
+		while (data->stack_b != c_node && data->stack_a != c_node->target)
+			rr(data);
+	}
+	else if (!c_node->above_median && !c_node->target->above_median)
+	{
+		while (data->stack_b != c_node && data->stack_a != c_node->target)
+			rrr(data);
+	}
+	while (data->stack_b != c_node)
+	{
+		if (c_node->above_median)
+			rb(data);
 		else
-			stack_a->target->push_cost = len_b - stack_a->target->index;
-		if (stack_a->above_median == stack_a->target->above_median)
+			rrb(data);
+	}
+	while (data->stack_a != c_node->target)
+	{
+		if (c_node->target->above_median)
+			ra(data);
+		else
+			rra(data);
+	}
+}
+
+static void exact_cost(t_stack *t, int len_a, int len_b)
+{
+    int cost_a;
+    int cost_b;
+
+    if (t->above_median)
+        cost_a = t->pos;
+    else
+        cost_a = len_a - t->pos;
+    if (t->target->above_median)
+        cost_b = t->target->pos;
+    else
+        cost_b = len_b - t->target->pos;
+    if (cost_a > cost_b)
+        t->push_cost = cost_a;
+    else
+        t->push_cost = cost_b;
+}
+
+void	total_cost_a(t_data *data)
+{
+	t_stack *t;
+	int     len_a;
+	int     len_b;
+
+	len_a = ft_double_lstsize(data->stack_a);
+	len_b = ft_double_lstsize(data->stack_b);
+	t = data->stack_a;
+	while (t)
+	{
+		t->push_cost = t->pos;
+		if (!t->above_median)
+			t->push_cost = len_a - t->pos;
+		if (t->target->above_median)
+			t->push_cost += t->target->pos;
+		else
+			t->push_cost += len_b - t->target->pos;
+		if (t->above_median == t->target->above_median)
 		{
-			if (stack_a->push_cost > stack_a->target->push_cost)
-				stack_a->push_cost = stack_a->push_cost;
-			else
-				stack_a->push_cost = stack_a->target->push_cost;
+			exact_cost(t, len_a, len_b); 
 		}
+		t = t->next;
+	}
+}
+
+void	total_cost_b(t_data *data)
+{
+	t_stack *t;
+	int     len_a;
+	int     len_b;
+
+	len_a = ft_double_lstsize(data->stack_a);
+	len_b = ft_double_lstsize(data->stack_b);
+	t = data->stack_b;
+	while (t)
+	{
+		t->push_cost = t->pos;
+		if (!t->above_median)
+			t->push_cost = len_a - t->pos;
+		if (t->target->above_median)
+			t->push_cost += t->target->pos;
 		else
-			stack_a->push_cost = stack_a->push_cost + stack_a->target->push_cost;
-			
-		stack_a = stack_a->next;
+			t->push_cost += len_b - t->target->pos;
+		if (t->above_median == t->target->above_median)
+		{
+			exact_cost(t, len_a, len_b); 
+		}
+		t = t->next;
 	}
 }

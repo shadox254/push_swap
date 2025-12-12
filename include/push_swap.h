@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:22:22 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/11 16:23:01 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/12 11:59:35 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,11 @@ void	bring_to_top(t_data *data, int target);
 // OTHER
 void	set_pos(t_data *data);
 t_stack	*get_cheappest(t_stack *stack);
+void	set_current_position(t_stack *stack);
 
 // UTILS
-long	get_lowest(t_data *data);
-long	get_highest(t_data *data);
+long	get_lowest(t_stack *stack);
+long	get_highest(t_stack *stack);
 void	init_median(t_data *data);
 int		get_pos(t_stack *stack, int value);
 void	init_cheappest(t_stack *stack);
@@ -99,9 +100,9 @@ void	get_target_a(t_data *data);
 void	get_target_b(t_data *data);
 
 // COST
-void get_cost_a(t_data *data);
-void get_cost_b(t_data *data);
-void push_cost(t_data *data, t_stack *cheappest);
-void total_cost(t_stack *stack_a, t_stack *stack_b);
+void	push_cost_a(t_data *data, t_stack *cheappest);
+void	push_cost_b(t_data *data, t_stack *cheappest);
+void	total_cost_a(t_data *data);
+void	total_cost_b(t_data *data);
 
 #endif
