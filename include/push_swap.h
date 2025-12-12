@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:22:22 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/12 11:59:35 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:24:01 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ typedef struct s_data
 	t_stack	*stack_b;
 }	t_data;
 
-void	indexing(t_data *data);
-void	push_swap(t_data *data);
 void	sort_stack(t_data *data);
+void	push_swap(t_data *data);
+void	indexing(t_data *data);
 
 // SORT OPERATIONS
 void	pa(t_data *data);
@@ -65,7 +65,7 @@ int		check_order(t_stack *stack);
 int		check_num(t_stack *stack);
 int		create_data(t_stack **stack, int ac, char **av);
 
-// ERROR HANDLING
+// ERROR
 int		error(t_data data);
 void	clear_data(t_data *data);
 
@@ -80,29 +80,27 @@ void	ft_double_lstadd_front(t_stack **lst, t_stack *new);
 void	sort_two(t_data *data);
 void	sort_three(t_data *data);
 void	sort_four(t_data *data);
+
+// SORT FIVE
 void	sort_five(t_data *data);
 void	bring_to_top(t_data *data, int target);
-
-// OTHER
-void	set_pos(t_data *data);
-t_stack	*get_cheappest(t_stack *stack);
-void	set_current_position(t_stack *stack);
-
-// UTILS
-long	get_lowest(t_stack *stack);
-long	get_highest(t_stack *stack);
-void	init_median(t_data *data);
-int		get_pos(t_stack *stack, int value);
-void	init_cheappest(t_stack *stack);
 
 // TARGET
 void	get_target_a(t_data *data);
 void	get_target_b(t_data *data);
 
 // COST
-void	push_cost_a(t_data *data, t_stack *cheappest);
-void	push_cost_b(t_data *data, t_stack *cheappest);
+void	push_cost_a(t_data *data, t_stack *c_node);
 void	total_cost_a(t_data *data);
-void	total_cost_b(t_data *data);
+
+// ALGO UTILS
+t_stack	*get_max(t_stack *stack);
+t_stack	*get_min(t_stack *stack);
+void	set_current_position(t_stack *stack);
+
+// INIT UTILS
+t_stack	*get_cheappest(t_stack *stack);
+int		get_pos(t_stack *stack, int value);
+void	init_cheappest(t_stack *stack);
 
 #endif

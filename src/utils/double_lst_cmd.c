@@ -6,11 +6,11 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:32:01 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/11 11:29:14 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:12:40 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	ft_clear_double_lst(t_stack **lst)
 {

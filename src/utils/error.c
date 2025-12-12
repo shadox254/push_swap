@@ -6,11 +6,11 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 10:29:02 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/09 14:16:36 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:12:40 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	error(t_data data)
 {

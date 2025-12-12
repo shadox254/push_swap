@@ -15,22 +15,22 @@ SRCS_ROOT		=	main.c
 
 SRCS_SUB		=	check/checker.c \
 					check/create_data.c \
-					sorting_operations/push_op.c \
-					sorting_operations/swap_op.c \
-					sorting_operations/rev_rotate_op.c \
-					sorting_operations/rotate_op.c \
 					sort_number/sort_five.c \
 					sort_number/sort.c \
-					double_lst_cmd.c \
-					error.c \
-					push_swap.c \
-					indexing.c \
+					sorting_operations/push_op.c \
+					sorting_operations/rev_rotate_op.c \
+					sorting_operations/rotate_op.c \
+					sorting_operations/swap_op.c \
+					utils/algo_utils.c \
+					utils/cost.c \
+					utils/debug.c \
+					utils/double_lst_cmd.c \
+					utils/error.c \
+					utils/indexing.c \
+					utils/init_utils.c \
+					utils/target.c \
 					algo.c \
-					utils.c \
-					target.c \
-					cost.c \
-					other.c \
-					debug.c
+					push_swap.c
 
 SRCS			=	$(SRCS_ROOT) $(addprefix $(SRC_DIR)/, $(SRCS_SUB))
 OBJS			=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -39,7 +39,7 @@ GREEN			=	\033[32m
 BLUE			=	\033[34m
 RESET			=	\033[0m
 
-all: $(NAME)
+all: $(NAME) $(LIBFT)
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH) --no-print-directory

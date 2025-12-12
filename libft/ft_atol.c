@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:17:29 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/09 09:17:53 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/12 14:48:45 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ long	ft_atol(const char *nptr)
 	while ((nptr[i] >= '0' && nptr[i] <= '9'))
 	{
 		n = (n * 10) + (nptr[i] - '0');
+		if (n > 2147483648)
+			return (n * sign);
 		i++;
 	}
 	return (n * sign);

@@ -6,11 +6,23 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:33:18 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/10 17:25:38 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:38:47 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
+
+static void	index_zero(t_stack *stack);
+static void	indexing_a(t_stack *stack);
+static void	indexing_b(t_stack *stack);
+
+void	indexing(t_data *data)
+{
+	if (data->stack_a != NULL)
+		indexing_a(data->stack_a);
+	if (data->stack_b != NULL)
+		indexing_b(data->stack_b);
+}
 
 static void	index_zero(t_stack *stack)
 {
@@ -62,12 +74,4 @@ static void	indexing_b(t_stack *stack)
 		}
 		current = current->next;
 	}
-}
-
-void	indexing(t_data *data)
-{
-	if (data->stack_a != NULL)
-		indexing_a(data->stack_a);
-	if (data->stack_b != NULL)
-		indexing_b(data->stack_b);
 }
