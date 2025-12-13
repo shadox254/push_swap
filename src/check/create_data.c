@@ -6,7 +6,7 @@
 /*   By: rruiz <rruiz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:25:44 by rruiz             #+#    #+#             */
-/*   Updated: 2025/12/12 15:32:40 by rruiz            ###   ########.fr       */
+/*   Updated: 2025/12/13 12:39:34 by rruiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	create_data(t_stack **stack, int ac, char **av)
 			if (check_only_num(args[j]) == 0)
 				return (ft_free_tab(args), 0);
 			if (put_in_stack(stack, args, j) == 0)
-				return (0);
+				return (ft_free_tab(args), 0);
 		}
 		ft_free_tab(args);
 		i++;

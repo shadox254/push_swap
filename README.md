@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 **This project has been created as part of the 42 curriculum by rruiz.**
+=======
+This project has been created as part of the 42 curriculum by rruiz.
+>>>>>>> b505205 (push swap)
 
 # push_swap
 
@@ -8,7 +12,11 @@ The goal of this project is to sort a stack of given numbers with a limited numb
 
 ## Instructions
 
+<<<<<<< HEAD
 ### To compile
+=======
+### Compilation
+>>>>>>> b505205 (push swap)
 
 * **Compile the project :**
 	```bash
@@ -27,7 +35,11 @@ The goal of this project is to sort a stack of given numbers with a limited numb
 	make re
 	```
 
+<<<<<<< HEAD
 ### To execute
+=======
+### Exécution
+>>>>>>> b505205 (push swap)
 	```bash
 	./push_swap 2 1 3 6 5 8
 	```
@@ -38,6 +50,7 @@ The goal of this project is to sort a stack of given numbers with a limited numb
 	or
 	```bash
 	./push_swap "4 8 2 21 197 -562" 7 5 -4 213 3 "877 534 1 -84 -56"
+<<<<<<< HEAD
 	```
 
 ## Resources
@@ -45,3 +58,6 @@ The goal of this project is to sort a stack of given numbers with a limited numb
 https://www.youtube.com/watch?v=wRvipSG4Mmk
 https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0
 https://42-cursus.gitbook.io/guide/2-rank-02/push_swap
+=======
+	```
+>>>>>>> b505205 (push swap)
