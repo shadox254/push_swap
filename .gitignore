@@ -1,0 +1,21 @@
+# EDIT
+.vscode/*
+*~
+\#*\#
+
+# PROG
+a.out
+push_swap
+checker_linux
+
+# LIB
+*.a
+libft.a
+
+# OBJ
+*.o
+/obj
+libft/obj
+
+
+.DS_STORE
