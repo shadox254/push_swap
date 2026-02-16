@@ -1,52 +1,18 @@
-**This project has been created as part of the 42 curriculum by rruiz.**
+*This project has been created as part of the 42 curriculum by rruiz*
+<p align="center">
+  <img src="https://github.com/shadox254/push_swap/blob/main/assets_github/asset_push_swap.png" width="250" />
+</p>
+<h3 align="center">
+  <em>Phrase d'accroche trop bien pour printf</em>
+</h3>
 
-# push_swap
+*Project language: C*
 
-## Description
-
-The goal of this project is to sort a stack of given numbers with a limited number of sorting instructions and using as few instructions as possible to sort the stack. This project allows us to discover algorithms and their complexity and also allows us to deepen our mastery of structures.
-
-## Instructions
-
-### To compile
-
-### Compilation
-
-* **Compile the project :**
-	```bash
-	make all
-	```
-* **Clean all objects files :**
-	```bash
-	make clean
-	```
-* **Clean everything (object files and executables):**
-	```bash
-	make fclean
-	```
-* **Clean everything and compile the project:**
-	```bash
-	make re
-	```
+## 📄 Description
+This project consists of recreating printf, with 9 conversions.
 
 
-### To execute
+## 🗿 Status
+Completed on 12/15/2025 with 100/100.
 
-### Exécution
-	```bash
-	./push_swap 2 1 3 6 5 8
-	```
-	or
-	```bash
-	./push_swap "4 8 7 3 1 -7 75"
-	```
-	or
-	```bash
-	./push_swap "4 8 2 21 197 -562" 7 5 -4 213 3 "877 534 1 -84 -56"
-	```
-
-## Resources
-
-https://www.youtube.com/watch?v=wRvipSG4Mmk
-https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0
-https://42-cursus.gitbook.io/guide/2-rank-02/push_swa
+![](https://github.com/shadox254/push_swap/blob/main/assets_github/push_swap_result.png)
